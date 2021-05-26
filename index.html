@@ -4,11 +4,28 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" href="./assets/styles/style.css">
     <title>Weather Dashboard</title>
 </head>
 <body>
-    
+    <div class="container">
+        <nav>
+            <div class="nav-wrapper">
+                <a href="#" class="brand-logo center">Weather Dashboard</a>
+            </div>
+        </nav>
+        <div class="row s12">
+            <div class="col s4 m4 l3" id="searchContainer">
+                <h2>Search for a City:</h2>
+                <input type="search" placeholder="Enter a city here">
+                <button class="waves-effect waves-light btn" id="searchButton">Search</button>
+            </div>
+            <div class="col s7" id="weatherContainer">
+
+            </div>
+        </div>
+    </div>
 <script src="./assets/js/script.js"></script>
 </body>
 </html>

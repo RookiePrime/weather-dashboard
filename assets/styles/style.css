@@ -1,0 +1,37 @@
+/* Universal and general styling starts here. Root and body and whatnot */
+
+:root {
+
+}
+
+body {
+   margin: 0;
+   padding: 0;
+   font-family: Arial, Helvetica, sans-serif;
+   display: flex;
+   flex-direction: column;
+   min-height: 100vh;
+}
+
+h1 {
+    margin: 0;
+}
+
+/* Universal and general styling ends here */
+
+/* Left-side bar styling begins here */
+
+#searchContainer {
+    margin: 10px 10px 0 0;
+}
+
+h2 {
+    font-size: 32px;
+    margin: 0;
+}
+
+#searchButton {
+    width: 100%;
+}
+
+/* Left-side bar styling ends here */
