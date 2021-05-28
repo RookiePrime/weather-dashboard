@@ -1,9 +1,5 @@
 /* Universal and general styling starts here. Root and body and whatnot */
 
-:root {
-
-}
-
 body {
    margin: 0;
    padding: 0;
@@ -22,11 +18,11 @@ h1 {
 /* Left-side bar styling begins here */
 
 #searchContainer {
-    margin: 10px 10px 0 0;
+    margin-top: 20px;
 }
 
 h2 {
-    font-size: 32px;
+    font-size: 28px;
     margin: 0;
 }
 
@@ -35,3 +31,17 @@ h2 {
 }
 
 /* Left-side bar styling ends here */
+
+/* Right-side weather display styling begins here */
+
+#cityBox {
+    border: 2px solid black;
+    margin-top: 20px;
+    padding: 10px 10px;
+}
+
+.card .card-content {
+    padding: 10px;
+}
+
+/* Right-side weather display styling ends here */
