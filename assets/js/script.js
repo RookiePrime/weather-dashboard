@@ -19,6 +19,7 @@ const getWeatherData = searchTerm => {
                     response.json().then(data => {
                         // Now the REAL call, using the obtained lat and lon
                         const cityName = data.name;
+
                         fetch(oneCallapiUrl + "lat=" + data.coord.lat + "&lon=" + data.coord.lon + "&units=metric" + apiKey)
                             .then(secResponse => {
                                 // If this REAL response is legit
@@ -29,8 +30,6 @@ const getWeatherData = searchTerm => {
                                     })
                                 }
                             })
-                        
-                        // displayWeather(data);
                     })
                 }
             });
@@ -78,7 +77,7 @@ const displayWeather = (weatherData, cityName) => {
 
     fiveDayH2.textContent = "5-Day Forecast:"
 
-    // Now to make each card for the next five days' forecasts
+    // Now to make each card for the next five days' forecasts. Taking heavily from the Materialize UI example for how to lay it out
     for (let i = 0; i < 5; i++) {
         const cardBox = document.createElement("div");
         const dayCard = document.createElement("div");
@@ -115,11 +114,15 @@ const displayWeather = (weatherData, cityName) => {
 };
 
 const searchButtonHandler = event => {
-    const targ = event.target;
-    const searchTerm = searchInputEl.value;
-    // If the search button is hit, clear the current weather and get new data
-    if (targ.id === "searchButton") {
-        getWeatherData(searchTerm);
+    const clickedEl = event.target;
+    if (clickedEl.localName === "button") {
+        if (clickedEl.id === "searchButton") {
+            const searchTerm = searchInputEl.value;
+            getWeatherData(searchTerm);
+        } else {
+            const searchTerm = clickedEl.id;
+            getWeatherData(searchTerm);
+        }
     }
 };
 
