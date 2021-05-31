@@ -4,11 +4,39 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" href="./assets/styles/style.css">
     <title>Weather Dashboard</title>
 </head>
 <body>
-    
+    <div class="container">
+        <nav>
+            <div class="nav-wrapper col s12">
+                <a href="#" class="brand-logo center">Weather Dashboard</a>
+            </div>
+        </nav>
+        <div class="row s12">
+            <div class="col s6 m5 l4 xl3" id="searchContainer">
+                <h2>Search for a City:</h2>
+                <input type="search" placeholder="Enter a city here">
+                <button class="waves-effect waves-light btn" id="searchButton">Search</button>
+                <!-- Canadian cities, not American. Note: Some searches lead to different cities, so the ID (which is what I use to search) needs to be more specific sometimes. E.g., Victoria's ID is "victoria,ca", not just "victoria"  -->
+                <div class="city-buttons">
+                    <button class="waves-effect waves-light grey lighten-2 black-text btn" id="montreal">Montreal</button>
+                    <button class="waves-effect waves-light grey lighten-2 black-text btn" id="ottawa">Ottawa</button>
+                    <button class="waves-effect waves-light grey lighten-2 black-text btn" id="quebec">Quebec City</button>
+                    <button class="waves-effect waves-light grey lighten-2 black-text btn" id="regina">Regina</button>
+                    <button class="waves-effect waves-light grey lighten-2 black-text btn" id="saskatoon">Saskatoon</button>
+                    <button class="waves-effect waves-light grey lighten-2 black-text btn" id="toronto">Toronto</button>
+                    <button class="waves-effect waves-light grey lighten-2 black-text btn" id="vancouver">Vancouver</button>
+                    <button class="waves-effect waves-light grey lighten-2 black-text btn" id="victoria,ca">Victoria</button>
+                </div>
+            </div>
+            <div class="col s6 m7 l8 xl9" id="weatherContainer">
+                <!-- Is filled with weather data upon user input -->
+            </div>
+        </div>
+    </div>
 <script src="./assets/js/script.js"></script>
 </body>
 </html>

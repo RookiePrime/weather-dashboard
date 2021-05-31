@@ -1,0 +1,81 @@
+/* Universal and general styling starts here. Root and body and whatnot */
+
+body {
+   margin: 0;
+   padding: 0;
+   font-family: Arial, Helvetica, sans-serif;
+   display: flex;
+   flex-direction: column;
+   min-height: 100vh;
+}
+
+.brand-logo {
+    white-space: nowrap;
+}
+
+/* Universal and general styling ends here */
+
+/* Left-side bar styling begins here */
+
+#searchContainer {
+    margin-top: 20px;
+}
+
+h2 {
+    font-size: 28px;
+    margin: 0;
+}
+
+.btn {
+    width: 100%;
+}
+
+.city-buttons {
+    border-top: 1px solid black;
+    padding-top: 15px;
+    margin-top: 15px;
+}
+
+.city-buttons .btn {
+    margin-bottom: 10px;
+}
+
+/* Left-side bar styling ends here */
+
+/* Right-side weather display styling begins here */
+
+#cityBox {
+    border: 2px solid black;
+    margin-top: 20px;
+    padding: 10px 10px;
+    position: relative;
+}
+
+#cityBox span {
+    padding: 5px 20px;
+    border-radius: 3px;
+}
+
+.weather-icon {
+    width: 50px;
+}
+
+#cityBox .weather-icon {
+    position: absolute;
+    top: 0;
+}
+
+.card .card-content {
+    padding: 10px;
+}
+
+.card span.card-title {
+    font-size: 20px;
+}
+
+.card p {
+    font-size: 10px;
+    white-space: nowrap;
+}
+
+/* Right-side weather display styling ends here */
