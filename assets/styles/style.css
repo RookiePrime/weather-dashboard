@@ -9,8 +9,8 @@ body {
    min-height: 100vh;
 }
 
-h1 {
-    margin: 0;
+.brand-logo {
+    white-space: nowrap;
 }
 
 /* Universal and general styling ends here */
@@ -48,10 +48,34 @@ h2 {
     border: 2px solid black;
     margin-top: 20px;
     padding: 10px 10px;
+    position: relative;
+}
+
+#cityBox span {
+    padding: 5px 20px;
+    border-radius: 3px;
+}
+
+.weather-icon {
+    width: 50px;
+}
+
+#cityBox .weather-icon {
+    position: absolute;
+    top: 0;
 }
 
 .card .card-content {
     padding: 10px;
+}
+
+.card span.card-title {
+    font-size: 20px;
+}
+
+.card p {
+    font-size: 10px;
+    white-space: nowrap;
 }
 
 /* Right-side weather display styling ends here */
