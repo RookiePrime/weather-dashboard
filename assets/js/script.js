@@ -1,6 +1,7 @@
 const searchContainerEl = document.querySelector("#searchContainer");
 const weatherContainerEl = document.querySelector("#weatherContainer");
-const searchInputEl = document.querySelector("input[type=search]");
+const searchInputEl = document.querySelector("input[type=text]");
+const dataListEl = document.querySelector("datalist");
 const firstapiUrl = "https://api.openweathermap.org/data/2.5/weather?q=";
 const oneCallapiUrl = "https://api.openweathermap.org/data/2.5/onecall?"
 const apiKey = "&appid=b9b5e05331dc05e13390961cd01eb4f8";
@@ -136,12 +137,31 @@ const displayWeather = (weatherData, cityName) => {
 
     weatherContainerEl.appendChild(fiveDayForecastEl);
 };
+
+// Creates a datalist to form a search history for the search bar
+const addToSearchHistory = searchTerm => {
+    const options = dataListEl.children;
+    const optionEl = document.createElement("option");
+    // If the term is the same as a previous one, bounce; otherwise, add it
+    for (let i = 0; i < options.length; i++) {
+        if (options[i].value === searchTerm) {
+            return;
+        }
+    }
+    optionEl.setAttribute("value", searchTerm);
+    dataListEl.appendChild(optionEl);
+};
+
 // The button handler. If it's the serach button, you feed what's in the search bar to the function. If not, you feed the ID of the button you clicked. Foolproof! As long as no one adds more buttons that do other things to the page, anyway...
-const searchButtonHandler = event => {
+const searchContainerHandler = event => {
+    event.preventDefault();
+
     const clickedEl = event.target;
-    if (clickedEl.localName === "button") {
+    if (clickedEl.localName === "button" || clickedEl.localName === "datalist") {
+
         if (clickedEl.id === "searchButton") {
             const searchTerm = searchInputEl.value;
+            addToSearchHistory(searchTerm);
             getWeatherData(searchTerm);
         } else {
             const searchTerm = clickedEl.id;
@@ -149,5 +169,16 @@ const searchButtonHandler = event => {
         }
     }
 };
+
 // The handler for the button, delegated to the container to save time
-searchContainerEl.addEventListener("click", searchButtonHandler);
+searchContainerEl.addEventListener("click", searchContainerHandler);
+// Had to look this up online to get a sense for it: https://stackoverflow.com/questions/30022728/perform-action-when-clicking-html5-datalist-option , a few responses down. It's hard to find the event of a datalist option being clicked. What I'm doing here is looking for a keydown event, because clicking a datalist option counts as a keydown event, BUT it has no key property. We make a let variable so that the info can be passed on to the input handler below this one.
+let typedByHand = true;
+searchInputEl.addEventListener("keydown", event => typedByHand = event.key);
+// We use the input event, for when input reaches the searchInputEl. If it's the result of accessing the list, then we do a search for that term.
+searchInputEl.addEventListener("input", event => {
+    if (!typedByHand) {
+        const searchTerm = event.target.value;
+        getWeatherData(searchTerm);
+    }
+})
