@@ -17,9 +17,14 @@
         </nav>
         <div class="row s12">
             <div class="col s6 m5 l4 xl3" id="searchContainer">
-                <h2>Search for a City:</h2>
-                <input type="search" placeholder="Enter a city here">
-                <button class="waves-effect waves-light btn" id="searchButton">Search</button>
+                <form action="#" autocomplete="on" for="searchWeather">
+                    <label for="searchWeather" class="black-text">Search for a City:</label>
+                    <input type="text" placeholder="Enter a city here" for="searchWeather" list="weatherInput">
+                    <!-- empty datalist that gets populated by user input -->
+                    <datalist id="weatherInput">
+                    </datalist>
+                    <button class="waves-effect waves-light btn" id="searchButton" for="searchWeather">Search</button>
+                </form>
                 <!-- Canadian cities, not American. Note: Some searches lead to different cities, so the ID (which is what I use to search) needs to be more specific sometimes. E.g., Victoria's ID is "victoria,ca", not just "victoria"  -->
                 <div class="city-buttons">
                     <button class="waves-effect waves-light grey lighten-2 black-text btn" id="montreal">Montreal</button>

@@ -21,7 +21,7 @@ body {
     margin-top: 20px;
 }
 
-h2 {
+label {
     font-size: 28px;
     margin: 0;
 }
@@ -49,6 +49,11 @@ h2 {
     margin-top: 20px;
     padding: 10px 10px;
     position: relative;
+}
+
+h2 {
+    margin: 0;
+    font-size: 28px;
 }
 
 #cityBox span {
